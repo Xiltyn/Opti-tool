@@ -496,7 +496,7 @@ body {
 
 @media screen and (max-width: 600px) {
   #render-error {
-    background-size: 50%; }
+    background-size: 45%; }
     #render-error .render-error--wrapper {
       width: 300px;
       top: 0;
@@ -514,7 +514,8 @@ body {
       #render-error .render-error--wrapper p {
         font-size: 1rem;
         width: 300px;
-        padding-top: 30px; }
+        padding-top: 20px;
+        line-height: 1rem; }
         #render-error .render-error--wrapper p a {
           font-size: 1.3rem; }
   #preloader h1 {
