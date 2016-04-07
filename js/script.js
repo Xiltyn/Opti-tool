@@ -11,7 +11,8 @@
 	var $distance;
 
 // HTML CODE TEMPLATES (placeholder code :: <%= PLACEHOLDER_NAME %>)
-	var $templateQuestions = _.template('<li class="animated fadeInUpBig json-question all <%= sub_id %> <%= aged %>"><%= content %><div class="json-answer--wrapper json-answer--hidden"><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_1 %>">Cevap 1</h3><p class="json-answer"><%= answer_1 %></p></a><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_2 %>">Cevap 2</h3><p class="json-answer"><%= answer_2 %></p></a></div></li>');
+
+	var $templateQuestions = _.template('<li class="json-question all <%= sub_id %> <%= aged %>"><%= content %><div class="json-answer--wrapper json-answer--hidden"><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_1 %>">Cevap 1</h3><p class="json-answer"><%= answer_1 %></p></a><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_2 %>">Cevap 2</h3><p class="json-answer"><%= answer_2 %></p></a></div></li>');
 	var $templateRanking = _.template('<li><div class="ranking-element"><a href="http://eodev.com/profil/<%=user_name%>-<%= user_id %>" target="_blank"><%= user_name %><div class="number"><%= answers_count %></div></a></div></li>');
 
 	function parseResponse(data){
@@ -31,9 +32,8 @@
 		        }
 		        rows.push(rowObj);
 		    }
-
 			} catch (exception) {
-				// showError();
+				showError();
 				console.log('Whoooooops!');
 			}
 
@@ -43,23 +43,25 @@
 	    var rows = [];
 	    var cells = data.feed.entry;
 
-	    for (var i = 0; i < cells.length; i++){
-	        var rowObj = {};
-	        rowObj.timestamp = cells[i].title.$t;
-	        var rowCols = cells[i].content.$t.split(',');
-	        for (var j = 0; j < rowCols.length; j++) {
-	            var keyVal = rowCols[j].split(':');
-							if (keyVal[1]) {
-								rowObj[keyVal[0].trim()] = keyVal[1].trim();
-							}
-	        }
-	        rows.push(rowObj);
-	    }
-			// console.log('plain ', rows);
-
-
+			try {
+		    for (var i = 0; i < cells.length; i++){
+		        var rowObj = {};
+		        rowObj.timestamp = cells[i].title.$t;
+		        var rowCols = cells[i].content.$t.split(',');
+		        for (var j = 0; j < rowCols.length; j++) {
+		            var keyVal = rowCols[j].split(':');
+								if (keyVal[1]) {
+									rowObj[keyVal[0].trim()] = keyVal[1].trim();
+								}
+		        }
+		        rows.push(rowObj);
+					}
+				} catch (exception) {
+					showError();
+					console.log('Whoooooops!');
+	    	}
 	    return rows;
-	}
+		}
 
 
 	function renderQuestions(questionsData) {
@@ -279,7 +281,14 @@
 			$('#preloader').remove();
 			// console.log('消えちゃった！');
 		});
+		$questionList.addClass('animated fadeInUpBig');
 	};
+
+	function showError() {
+		var $renderError = $('#render-error');
+
+		$renderError.fadeIn(300);
+	}
 
 
 	// $.getJSON( "questions.json", renderQuestions);

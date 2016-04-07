@@ -1,4 +1,33 @@
 @media screen and (max-width: 600px) {
+	#render-error {
+		background-size: 50%;
+		.render-error--wrapper {
+			width: 300px;
+			top: 0;
+	    left: 50%;
+	    margin-top: 0px;
+	    margin-left: -150px;
+			padding: 50px 15px;
+			.mint-logo {
+				left: 15px;
+				img {
+					max-width: 75px;
+				}
+			}
+			h1 {
+				margin-top: 10px;
+				font-size: 2.5rem;
+			}
+			p {
+				font-size: 1rem;
+				width: 300px;
+				padding-top: 30px;
+				a {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
 	#preloader {
 		h1 {
 			position:initial;
