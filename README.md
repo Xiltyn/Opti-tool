@@ -6,8 +6,7 @@ Hello!
 
 Aim of this project is to create a stand-alone tool to fetch data about questions from brainly sites in order to provide them in a more accessible and appealing way to a closed community of moderators. 
 
-===============
-| Version 1.2 |
+Version 1.2 
 ===============
 
 Features: 
@@ -19,8 +18,8 @@ Features:
   - UI (buttons for #help and #subjects-list [RWD : button for #ranking-list])
   - RWD support
 
-===============
-| Version 1.3 |
+
+Version 1.3
 ===============
 
 Features: 
