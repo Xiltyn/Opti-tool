@@ -20,6 +20,6 @@ Aim of this project is to create a stand-alone tool to fetch data about question
 
 ### Version 1.3
 
-##### Features: 
+##### Changes: 
   - Added an error screen shown when Google Spreadsheets' response is too slow and the site cannot load its content properly
   - Moved .animated class from list elements to the whole #questionList
