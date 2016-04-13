@@ -16,6 +16,7 @@
 
 	var $templateQuestions = _.template('<li class="json-question all <%= sub_id %> <%= aged %>"><%= content %><div class="json-answer--wrapper json-answer--hidden"><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_1 %>">Cevap 1</h3><p class="json-answer"><%= answer_1 %></p></a><a href="<%= link %>" class="json-link" target="_blank"><h3 class="json-header <%= approve_2 %>">Cevap 2</h3><p class="json-answer"><%= answer_2 %></p></a></div></li>');
 	var $templateRanking = _.template('<li><div class="ranking-element"><a href="http://eodev.com/profil/<%=user_name%>-<%= user_id %>" target="_blank"><%= user_name %><div class="number"><%= answers_count %></div></a></div></li>');
+	var $templateRankingWeekly = _.template('<li><div class="ranking-element"><a href="http://eodev.com/profil/<%=user_name%>-<%= user_id %>" target="_blank"><%= user_name %><div class="number"><%= answers_count_weekly %></div></a></div></li>');
 
 	function parseResponse(data){
 	    var rows = [];
@@ -160,21 +161,41 @@
 	}
 	function renderRanking(rankingData) {
 		var ranking = parseRanking(rankingData);
+		var rankingWeekly = parseRanking(rankingData);
 
 		// console.log(ranking);
+		function sortRankingGeneral() {
+			ranking.sort(function(a, b) {
+				var answerCountA = parseInt(a.answerscount,10);
+				var answerCountB = parseInt(b.answerscount,10);
 
-	  ranking.sort(function(a, b) {
-			var answerCountA = parseInt(a.answerscount,10);
-			var answerCountB = parseInt(b.answerscount,10);
+				if (answerCountA > answerCountB) {
+					return -1;
+				}
+				if (answerCountA < answerCountB) {
+					return 1;
+				}
+				return 0;
+			});
+		}
 
-			if (answerCountA > answerCountB) {
-		    return -1;
-		  }
-		  if (answerCountA < answerCountB) {
-		    return 1;
-		  }
-		  return 0;
-		});
+		function sortRankingWeekly() {
+			rankingWeekly.sort(function(a, b) {
+				var answerCountA = parseInt(a.answerscountweekly,10);
+				var answerCountB = parseInt(b.answerscountweekly,10);
+
+				if (answerCountA > answerCountB) {
+					return -1;
+				}
+				if (answerCountA < answerCountB) {
+					return 1;
+				}
+				return 0;
+			});
+		}
+
+	  sortRankingGeneral();
+		sortRankingWeekly();
 
 		var $fragment = $(document.createDocumentFragment());
 		var $fragmentWeekly = $(document.createDocumentFragment());
@@ -185,14 +206,18 @@
 				answers_count: item.answerscount,
 				user_id: item.userid,
 			}));
-			$fragmentWeekly.append($templateRanking({
+		});
+		$rankingList.append($fragment);
+
+		rankingWeekly.forEach(function(item) {
+			$fragmentWeekly.append($templateRankingWeekly({
 				user_name: item.timestamp,
-				answers_count: item.answerscount,
+				answers_count_weekly: item.answerscountweekly,
 				user_id: item.userid,
 			}));
 		});
-		$rankingList.append($fragment);
 		$rankingListWeekly.append($fragmentWeekly);
+
 		distanceTop();
 
 	}
