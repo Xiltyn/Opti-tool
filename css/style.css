@@ -151,35 +151,45 @@ body {
       margin-top: 20px;
       margin-bottom: -5px;
       padding-bottom: 10px;
-      border-bottom: solid 1px #bbbdbf;
       width: 100%;
       text-align: center; }
-    #content #ranking #rankingList {
+    #content #ranking .mint-tabs {
+      margin-top: 10px;
+      margin-right: -20px;
+      line-height: 1.5rem;
+      height: 1.5rem; }
+      #content #ranking .mint-tabs .mint-tabs__tab {
+        padding: 0 1rem;
+        min-height: 1.5rem;
+        font-size: .1rem; }
+    #content #ranking #rankingList, #content #ranking #rankingListWeekly {
       overflow: auto;
       padding-right: 17px;
       /* Increase/decrease this value for cross-browser compatibility */ }
-      #content #ranking #rankingList li {
+      #content #ranking #rankingList li, #content #ranking #rankingListWeekly li {
         position: relative;
         margin-left: -40px;
         list-style: inside decimal;
         font-weight: bold;
         font-size: 0.75rem; }
-        #content #ranking #rankingList li .ranking-element {
+        #content #ranking #rankingList li .ranking-element, #content #ranking #rankingListWeekly li .ranking-element {
           padding-bottom: 10px;
           margin-bottom: 10px;
           border-bottom: dashed 1px #bbbdbf; }
-          #content #ranking #rankingList li .ranking-element a {
+          #content #ranking #rankingList li .ranking-element a, #content #ranking #rankingListWeekly li .ranking-element a {
             color: black;
             transition: 0.25s; }
-          #content #ranking #rankingList li .ranking-element a:hover {
+          #content #ranking #rankingList li .ranking-element a:hover, #content #ranking #rankingListWeekly li .ranking-element a:hover {
             color: #969799;
             transition: 0.25s; }
-          #content #ranking #rankingList li .ranking-element .number {
+          #content #ranking #rankingList li .ranking-element .number, #content #ranking #rankingListWeekly li .ranking-element .number {
             position: absolute;
             top: 0;
             left: 95%;
             color: #ff8073;
             text-align: right; }
+    #content #ranking #rankingListWeekly {
+      display: none; }
   #content h1 {
     width: 95%;
     margin: auto;
