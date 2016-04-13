@@ -11,7 +11,7 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1001;  
+	z-index: 1001;
 	.preloader-animation {
 		position: absolute;
     top: 50%;
@@ -175,11 +175,21 @@ body {
 			margin-top: 20px;
 			margin-bottom: -5px;
 			padding-bottom: 10px;
-			border-bottom: solid 1px #bbbdbf;
 			width: 100%;
 			text-align: center;
 		}
-		#rankingList {
+		.mint-tabs {
+			margin-top: 10px;
+			margin-right: -20px;
+			line-height: 1.5rem;
+			height: 1.5rem;
+			.mint-tabs__tab {
+				padding: 0 1rem;
+				min-height: 1.5rem;
+				font-size: .1rem;
+			}
+		}
+		#rankingList, #rankingListWeekly {
 			overflow: auto;
     	padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
 			li {
@@ -209,6 +219,9 @@ body {
 					}
 				}
 			}
+		}
+		#rankingListWeekly {
+			display: none;
 		}
 	}
 	h1 {

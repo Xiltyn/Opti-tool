@@ -5,10 +5,12 @@
 	var $search = $('#search');
 	var $questionList = $('#questionList');
 	var $rankingList = $('#rankingList');
+	var $rankingListWeekly = $('#rankingListWeekly');
 	var $questionListElements;
 	var $questions;
 	var $questionsArray;
 	var $distance;
+	var rankingTab;
 
 // HTML CODE TEMPLATES (placeholder code :: <%= PLACEHOLDER_NAME %>)
 
@@ -175,6 +177,7 @@
 		});
 
 		var $fragment = $(document.createDocumentFragment());
+		var $fragmentWeekly = $(document.createDocumentFragment());
 
 		ranking.forEach(function(item) {
 			$fragment.append($templateRanking({
@@ -182,8 +185,14 @@
 				answers_count: item.answerscount,
 				user_id: item.userid,
 			}));
+			$fragmentWeekly.append($templateRanking({
+				user_name: item.timestamp,
+				answers_count: item.answerscount,
+				user_id: item.userid,
+			}));
 		});
 		$rankingList.append($fragment);
+		$rankingListWeekly.append($fragmentWeekly);
 		distanceTop();
 
 	}
@@ -296,6 +305,30 @@
 			});
 	}
 
+	function rankingTabsToggle() {
+		$rankingTab = $('.mint-tabs__tab');
+		$rankingWrapper = $('.ranking-wrapper');
+
+		$rankingTab.each(function() {
+
+			console.log(this);
+
+			$(this).on('click', function() {
+				if ($(this).data('ranking') == 'general') {
+					$rankingList.fadeOut(300).fadeIn(300);
+					$rankingListWeekly.fadeIn(300).fadeOut(300)
+					console.log($rankingList);
+				} else {
+					$rankingList.fadeIn(300).fadeOut(300);
+					$rankingListWeekly.fadeOut(300).fadeIn(300)
+					console.log($rankingListWeekly);
+				}
+				console.log('clicked!');
+			})
+		});
+
+	}
+
 
 
 	// $.getJSON( "questions.json", renderQuestions);
@@ -312,7 +345,8 @@
 	openHelp();
 	openMenu();
 	openRankingMobile();
-	// rankingTabs();
+	rankingTabs();
+	rankingTabsToggle();
 
 	// $search.on('keyup', _.debounce(displayMatches, 200));
 
