@@ -290,6 +290,13 @@
 		$renderError.fadeIn(300);
 	}
 
+	function rankingTabs() {
+		$('.mint-tabs').on('click', '.mint-tabs__tab', function () {
+					$(this).siblings('.mint-tabs__tab--active').removeClass('mint-tabs__tab--active').end().addClass('mint-tabs__tab--active');
+			});
+	}
+
+
 
 	// $.getJSON( "questions.json", renderQuestions);
 
@@ -305,6 +312,7 @@
 	openHelp();
 	openMenu();
 	openRankingMobile();
+	// rankingTabs();
 
 	// $search.on('keyup', _.debounce(displayMatches, 200));
 
