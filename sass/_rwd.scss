@@ -100,6 +100,11 @@
 			z-index: 400;
 			transform: translate(-225px);
 			transition: 0.5s;
+			.mint-tabs {
+				.mint-tabs__tab {
+					padding: 0 1.4rem;
+				}
+			}
 	 	}
 		.subjects-menu {
 			margin: auto !important;
