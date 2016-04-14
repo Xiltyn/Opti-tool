@@ -589,6 +589,8 @@ body {
       z-index: 400;
       transform: translate(-225px);
       transition: 0.5s; }
+      #content #ranking .mint-tabs .mint-tabs__tab {
+        padding: 0 1.4rem; }
     #content .subjects-menu {
       margin: auto !important;
       width: 320px !important;
