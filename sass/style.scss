@@ -1,9 +1,65 @@
+/*
+-------------------------------------------
+>>>>>>>>> Opti-tool © Brainly 2016 <<<<<<<<
+>>>>>>>>>>> STYLESHEET ver. 1.4 <<<<<<<<<<<
+-------------------------------------------
+---------------- CONTENTS -----------------
+
+	1. General
+	2. Independent elements
+		2.1. Preloader
+		2.2. Top-layer blackout
+	3. Header
+	4. Content
+		4.1. Header logo
+		4.2. Navigation
+		4.3. Help toplayer
+		4.4. Subjects filter menu
+		4.5. Rankings
+			4.5.1. Header
+			4.5.2. Menu
+			4.5.3. Ranking wrappers
+		4.6. Secondary header
+		4.7. Questions container
+		 	4.7.1. Answer style
+		4.8. Call to action
+	5. Footer
+		5.1. Facebook share button
+		5.2. Twitter share button
+	6. SASS partials import
+		6.1. _preloader-animation.scss
+		6.2. _error.scss
+		6.3. _rwd.scss
+
+	-------------------------------------------
+	--------------- DESCRIPTION ---------------
+
+
+
+
+	-------------------------------------------
+*/
+
+/*
+=================================|▷
+1. General
+=================================|▷
+*/
+
 html {
 	font-size: 100%;
 }
 body {
 	background-color: #ebf2ef;
 }
+
+/*
+=================================|▷
+2. Independent elements
+=================================|▷
+	2.1. Preloader
+=================================|▷
+*/
 #preloader {
 	width: 100vw;
 	height: 100vh;
@@ -33,6 +89,27 @@ body {
     margin-top: 110px;
 	}
 }
+/*
+=================================|▷
+	2.2. Top-layer blackout
+=================================|▷
+*/
+#blackout {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.75);
+	z-index: 250;
+}
+
+/*
+=================================|▷
+3. Header
+=================================|▷
+*/
 #header {
 	height: 400px;
 	width: 100%;
@@ -44,6 +121,12 @@ body {
 		padding-top: 120px;
 	}
 }
+
+/*
+=================================|▷
+4. Content
+=================================|▷
+*/
 #content {
 	position:relative;
 	padding: 10px;
@@ -58,6 +141,21 @@ body {
 	background-position: 83% 40px;
 	background-color: #fff;
 	border-radius: 30px;
+	/*
+	===============================|▷
+	4.1. Header logo
+	===============================|▷
+	*/
+	.mint-logo {
+		position: absolute;
+		left: 385px;
+		top: -270px;
+	}
+	/*
+	===============================|▷
+	4.2. Navigation
+	===============================|▷
+	*/
 	#controls {
 		width: 300px;
 		height: 35px;
@@ -111,6 +209,11 @@ body {
 			background: url('subjects_active.png') no-repeat;
 		}
 	}
+	/*
+	===============================|▷
+	4.3. Help toplayer
+	===============================|▷
+	*/
 	#help {
 		padding: 50px;
 		margin-bottom: 50px;
@@ -138,6 +241,11 @@ body {
 			cursor: hand;
 		}
 	}
+	/*
+	===============================|▷
+	4.4. Subjects filter menu
+	===============================|▷
+	*/
 	.subjects-menu--unfold {
 		height: 300px !important;
 		overflow: hidden;
@@ -156,6 +264,11 @@ body {
 			line-height: 1rem;
 		}
 	}
+	/*
+	===============================|▷
+	4.5. Rankings
+	===============================|▷
+	*/
 	#ranking {
 		z-index: 100;
 		position: absolute;
@@ -170,6 +283,11 @@ body {
 		margin-left: -455px;
 		border: solid 2px black;
 		overflow:auto;
+		/*
+		=============================|▷
+		4.5.1. Header
+		=============================|▷
+		*/
 		h3 {
 			color: #5bb8ff;
 			margin-top: 20px;
@@ -178,6 +296,11 @@ body {
 			width: 100%;
 			text-align: center;
 		}
+		/*
+		=============================|▷
+		4.5.2. Menu
+		=============================|▷
+		*/
 		.mint-tabs {
 			margin-top: 10px;
 			margin-right: -20px;
@@ -189,6 +312,11 @@ body {
 				font-size: .1rem;
 			}
 		}
+		/*
+		=============================|▷
+		4.5.3. Ranking wrappers
+		=============================|▷
+		*/
 		#rankingList, #rankingListWeekly {
 			overflow: auto;
     	padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
@@ -224,6 +352,11 @@ body {
 			display: none;
 		}
 	}
+	/*
+	===============================|▷
+	4.6. Secondary header
+	===============================|▷
+	*/
 	h1 {
 		width: 95%;
 		margin: auto;
@@ -233,11 +366,11 @@ body {
 		margin-bottom: 30px;
 		color: #5bb8ff !important;
 	}
-	.mint-logo {
-		position: absolute;
-		left: 385px;
-		top: -270px;
-	}
+	/*
+	===============================|▷
+	4.7. Questions container
+	===============================|▷
+	*/
 	#results-wrapper {
 		ul {
 			padding: 0 100px;
@@ -270,7 +403,11 @@ body {
 				padding-bottom: 10px;
 				padding-top: 10px;
 			}
-
+			/*
+			=============================|▷
+			4.7.1. Answer style
+			=============================|▷
+			*/
 			.json-answer--hidden {
 				display: none;
 			}
@@ -300,58 +437,53 @@ body {
 					background-position: right;
 					background-size: 30px 30px;
 				}
-				// .json-answer:before {
-  			// 	content:'';
-  			// 	width:100%;
-  			// 	height:100%;
-  			// 	position:absolute;
-  			// 	background:linear-gradient(rgba(255, 255, 255, 0) 0%, white);
-				// }
 			}
 		}
 	}
-}
-// li:nth-child(n + 16) {
-// 	display: none;
-// }
-// li:nth-child(n + 3) {
-// 	div {
-// 		display: block;
-// 	}
-// }
-.no-data {
-	width: 500px;
-	margin: auto;
-	h3 {
-		font-size: 1.4rem !important;
-		text-align: center;
-		padding: 20px;
-	}
-	#no-data-btn {
-		width: 175px;
+	/*
+	===============================|▷
+	4.8. Call to actions
+	===============================|▷
+	*/
+	.call-to-action {
+		width: 500px;
 		margin: auto;
+		h3 {
+			font-size: 1.4rem !important;
+			text-align: center;
+			padding: 20px;
+		}
+		.call-to-action--btn {
+			width: 175px;
+			margin: auto;
+		}
 	}
 }
-.mint-button-primary {
-	margin: auto;
-}
-.mint-search {
-	margin: 20px 7.5% !important;
-	width: 85% !important;
-}
-.mint-input--transparent-border:focus {
-	border-color: #5bb8ff !important;
-}
+/*
+=================================|▷
+5. Footer
+=================================|▷
+*/
 #footer {
 	position: relative;
 	height: 40px;
 	width: 100%;
 	background-color: #ebf2ef;
+	/*
+	===============================|▷
+	5.1. Facebook share button
+	===============================|▷
+	*/
 	.fb-share-button {
 		position: absolute;
 		left: 75%;
 		top: 0px;
 	}
+	/*
+	===============================|▷
+	5.2. Twitter share button
+	===============================|▷
+	*/
 	.twitter-share-btn {
 		position: absolute;
 		left: 63%;
@@ -365,16 +497,23 @@ body {
 		color: #383838;
 	}
 }
-#blackout {
-	position: fixed;
-	display: none;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0,0,0,0.75);
-	z-index: 250;
-}
-@import 'preloader';
+/*
+=================================|▷
+6. SASS partials import
+=================================|▷
+	6.1. _preloader-animation.scss
+=================================|▷
+*/
+@import 'preloader-animation';
+/*
+=================================|▷
+	6.2. _error.scss
+=================================|▷
+*/
 @import 'error';
+/*
+=================================|▷
+	6.3. _rwd.scss
+=================================|▷
+*/
 @import 'rwd';

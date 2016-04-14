@@ -1,9 +1,63 @@
+@charset "UTF-8";
+/*
+-------------------------------------------
+>>>>>>>>> Opti-tool © Brainly 2016 <<<<<<<<
+>>>>>>>>>>> STYLESHEET ver. 1.4 <<<<<<<<<<<
+-------------------------------------------
+---------------- CONTENTS -----------------
+
+	1. General
+	2. Independent elements
+		2.1. Preloader
+		2.2. Top-layer blackout
+	3. Header
+	4. Content
+		4.1. Header logo
+		4.2. Navigation
+		4.3. Help toplayer
+		4.4. Subjects filter menu
+		4.5. Rankings
+			4.5.1. Header
+			4.5.2. Menu
+			4.5.3. Ranking wrappers
+		4.6. Secondary header
+		4.7. Questions container
+		 	4.7.1. Answer style
+		4.8. Call to action
+	5. Footer
+		5.1. Facebook share button
+		5.2. Twitter share button
+	6. SASS partials import
+		6.1. _preloader-animation.scss
+		6.2. _error.scss
+		6.3. _rwd.scss
+
+	-------------------------------------------
+	--------------- DESCRIPTION ---------------
+
+
+
+
+	-------------------------------------------
+*/
+/*
+=================================|▷
+1. General
+=================================|▷
+*/
 html {
   font-size: 100%; }
 
 body {
   background-color: #ebf2ef; }
 
+/*
+=================================|▷
+2. Independent elements
+=================================|▷
+	2.1. Preloader
+=================================|▷
+*/
 #preloader {
   width: 100vw;
   height: 100vh;
@@ -30,6 +84,26 @@ body {
     top: 50%;
     margin-top: 110px; }
 
+/*
+=================================|▷
+	2.2. Top-layer blackout
+=================================|▷
+*/
+#blackout {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 250; }
+
+/*
+=================================|▷
+3. Header
+=================================|▷
+*/
 #header {
   height: 400px;
   width: 100%;
@@ -40,6 +114,11 @@ body {
     text-align: center;
     padding-top: 120px; }
 
+/*
+=================================|▷
+4. Content
+=================================|▷
+*/
 #content {
   position: relative;
   padding: 10px;
@@ -53,7 +132,51 @@ body {
   background-size: 40px 80px;
   background-position: 83% 40px;
   background-color: #fff;
-  border-radius: 30px; }
+  border-radius: 30px;
+  /*
+	===============================|▷
+	4.1. Header logo
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.2. Navigation
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.3. Help toplayer
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.4. Subjects filter menu
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.5. Rankings
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.6. Secondary header
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.7. Questions container
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	4.8. Call to actions
+	===============================|▷
+	*/ }
+  #content .mint-logo {
+    position: absolute;
+    left: 385px;
+    top: -270px; }
   #content #controls {
     width: 300px;
     height: 35px;
@@ -145,7 +268,22 @@ body {
     left: 50%;
     margin-left: -455px;
     border: solid 2px black;
-    overflow: auto; }
+    overflow: auto;
+    /*
+		=============================|▷
+		4.5.1. Header
+		=============================|▷
+		*/
+    /*
+		=============================|▷
+		4.5.2. Menu
+		=============================|▷
+		*/
+    /*
+		=============================|▷
+		4.5.3. Ranking wrappers
+		=============================|▷
+		*/ }
     #content #ranking h3 {
       color: #5bb8ff;
       margin-top: 20px;
@@ -198,13 +336,14 @@ body {
     padding: 20px 0 10px 0;
     margin-bottom: 30px;
     color: #5bb8ff !important; }
-  #content .mint-logo {
-    position: absolute;
-    left: 385px;
-    top: -270px; }
   #content #results-wrapper ul {
     padding: 0 100px;
-    font-size: 1.1rem; }
+    font-size: 1.1rem;
+    /*
+			=============================|▷
+			4.7.1. Answer style
+			=============================|▷
+			*/ }
     #content #results-wrapper ul a {
       width: 100%;
       color: black;
@@ -251,33 +390,37 @@ body {
         background: url("cross.png") no-repeat;
         background-position: right;
         background-size: 30px 30px; }
-
-.no-data {
-  width: 500px;
-  margin: auto; }
-  .no-data h3 {
-    font-size: 1.4rem !important;
-    text-align: center;
-    padding: 20px; }
-  .no-data #no-data-btn {
-    width: 175px;
+  #content .call-to-action {
+    width: 500px;
     margin: auto; }
+    #content .call-to-action h3 {
+      font-size: 1.4rem !important;
+      text-align: center;
+      padding: 20px; }
+    #content .call-to-action .call-to-action--btn {
+      width: 175px;
+      margin: auto; }
 
-.mint-button-primary {
-  margin: auto; }
-
-.mint-search {
-  margin: 20px 7.5% !important;
-  width: 85% !important; }
-
-.mint-input--transparent-border:focus {
-  border-color: #5bb8ff !important; }
-
+/*
+=================================|▷
+5. Footer
+=================================|▷
+*/
 #footer {
   position: relative;
   height: 40px;
   width: 100%;
-  background-color: #ebf2ef; }
+  background-color: #ebf2ef;
+  /*
+	===============================|▷
+	5.1. Facebook share button
+	===============================|▷
+	*/
+  /*
+	===============================|▷
+	5.2. Twitter share button
+	===============================|▷
+	*/ }
   #footer .fb-share-button {
     position: absolute;
     left: 75%;
@@ -293,16 +436,13 @@ body {
     text-align: center;
     color: #383838; }
 
-#blackout {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 250; }
-
+/*
+=================================|▷
+6. SASS partials import
+=================================|▷
+	6.1. _preloader-animation.scss
+=================================|▷
+*/
 /*!
  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
  * Copyright 2015 Daniel Cardoso <@DanielCardoso>
@@ -465,6 +605,11 @@ body {
     -o-transform: translate(-50%, -50%) rotate(360deg);
     transform: translate(-50%, -50%) rotate(360deg); } }
 
+/*
+=================================|▷
+	6.2. _error.scss
+=================================|▷
+*/
 #render-error {
   position: fixed;
   width: 100vw;
@@ -504,6 +649,11 @@ body {
         line-height: 3rem;
         color: #fff; }
 
+/*
+=================================|▷
+	6.3. _rwd.scss
+=================================|▷
+*/
 @media screen and (max-width: 600px) {
   #render-error {
     background-size: 45%; }
