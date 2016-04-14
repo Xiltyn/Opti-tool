@@ -336,19 +336,19 @@
 
 		$rankingTab.each(function() {
 
-			console.log(this);
+			// console.log(this);
 
 			$(this).on('click', function() {
 				if ($(this).data('ranking') == 'general') {
 					$rankingList.fadeOut(300).fadeIn(300);
 					$rankingListWeekly.fadeIn(300).fadeOut(300)
-					console.log($rankingList);
+					// console.log($rankingList);
 				} else {
 					$rankingList.fadeIn(300).fadeOut(300);
 					$rankingListWeekly.fadeOut(300).fadeIn(300)
-					console.log($rankingListWeekly);
+					// console.log($rankingListWeekly);
 				}
-				console.log('clicked!');
+				console.log('tabbed!');
 			})
 		});
 
