@@ -357,7 +357,8 @@ body {
       list-style-image: url("bullet.gif");
       cursor: pointer;
       cursor: hand;
-      transition: 0.5s; }
+      transition: 0.5s;
+      overflow: hidden; }
     #content #results-wrapper ul .js-li--blue {
       color: #5bb8ff !important; }
     #content #results-wrapper ul li:hover {
@@ -760,6 +761,8 @@ body {
     #content #results-wrapper ul {
       padding: 0;
       padding-left: 10px; }
+    #content .call-to-action {
+      width: 100%; }
   .no-data {
     width: 100%; }
   #footer {
