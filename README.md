@@ -33,7 +33,7 @@ Aim of this project is to create a stand-alone tool to fetch data about question
 
 ### Version 1.5
 
-#### Added features:
+##### Added features:
   - Profile containers for each user in the ranking accessable by clicking user's name in any ranking. 
   - RWD support for all features
   - Achievements system configurable via separate JSON-profile-IN spreadsheet
